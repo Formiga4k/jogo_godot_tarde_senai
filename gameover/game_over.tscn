@@ -1,0 +1,80 @@
+[gd_scene load_steps=15 format=3 uid="uid://ddlsmnb7cd5n5"]
+
+[ext_resource type="Script" path="res://gameover/game_over.gd" id="1_jmtm5"]
+[ext_resource type="FontFile" uid="uid://cc25majw4qlag" path="res://Fonts Text/pixel-bit-advanced.ttf" id="2_euvtl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdkvh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xeiu3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_15xh3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6clc0"]
+
+[sub_resource type="Theme" id="Theme_fxqlv"]
+Button/colors/font_hover_color = Color(0.988806, 0.988805, 9.2411e-06, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_rdkvh")
+Button/styles/hover = SubResource("StyleBoxEmpty_xeiu3")
+Button/styles/normal = SubResource("StyleBoxEmpty_15xh3")
+Button/styles/pressed = SubResource("StyleBoxEmpty_6clc0")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fian8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k4tts"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cud41"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eo7r1"]
+
+[sub_resource type="Theme" id="Theme_tby1o"]
+Button/colors/font_hover_color = Color(0.988806, 0.988805, 9.2411e-06, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_fian8")
+Button/styles/hover = SubResource("StyleBoxEmpty_k4tts")
+Button/styles/normal = SubResource("StyleBoxEmpty_cud41")
+Button/styles/pressed = SubResource("StyleBoxEmpty_eo7r1")
+
+[sub_resource type="Animation" id="Animation_3pqr4"]
+resource_name = "GameOver"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nqieq"]
+_data = {
+"GameOver": SubResource("Animation_3pqr4")
+}
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_jmtm5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -24.0
+offset_right = 79.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Reiniciar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_fxqlv")
+theme_override_fonts/font = ExtResource("2_euvtl")
+theme_override_font_sizes/font_size = 30
+text = "Reiniciar"
+
+[node name="Sair" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_tby1o")
+theme_override_fonts/font = ExtResource("2_euvtl")
+theme_override_font_sizes/font_size = 30
+text = "Sair do Jogo"
+
+[node name="AnimationTree" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nqieq")
+}
+
+[connection signal="pressed" from="VBoxContainer/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Sair" to="." method="_on_sair_pressed"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw6y5ofixyqhk"]
+
+[ext_resource type="Script" path="res://world_platform/world_platform.gd" id="1_publ5"]
+[ext_resource type="Texture2D" uid="uid://c26b0lhexeewy" path="res://Assets_aula1/Terrain/Terrain (16x16).png" id="2_drfd2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fjj7d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rs1e"]
+size = Vector2(92, 93.3333)
+
+[node name="world_platform" type="Node2D"]
+script = ExtResource("1_publ5")
+
+[node name="platform" type="AnimatableBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_fjj7d")
+
+[node name="Sprite2D" type="Sprite2D" parent="platform"]
+texture = ExtResource("2_drfd2")
+region_enabled = true
+region_rect = Rect2(193, 1.18989, 45.9444, 13.7833)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
+scale = Vector2(0.5, 0.15)
+shape = SubResource("RectangleShape2D_0rs1e")

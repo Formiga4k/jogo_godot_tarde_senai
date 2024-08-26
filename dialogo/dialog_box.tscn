@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk7wipbynj4pb"]
+
+[ext_resource type="Texture2D" uid="uid://b8icx6cibpt4g" path="res://Game Assets/HUD Text Box Alt.png" id="1_0nnhy"]
+[ext_resource type="FontFile" uid="uid://cc25majw4qlag" path="res://Fonts Text/pixel-bit-advanced.ttf" id="2_uerid"]
+
+[node name="dialog_box" type="MarginContainer"]
+offset_right = 101.0
+offset_bottom = 22.0
+
+[node name="background_text" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_0nnhy")
+region_rect = Rect2(24, 32, 648, 176)
+
+[node name="margin_textbox" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="text_label" type="Label" parent="margin_textbox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uerid")
+text = "Aperte 2 vezes \"Pular\" para um Double Jump!"
+
+[node name="letter_timer_display" type="Timer" parent="margin_textbox"]

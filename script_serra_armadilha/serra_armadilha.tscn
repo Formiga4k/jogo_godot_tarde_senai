@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://dmaptnp5b0dvj"]
+
+[ext_resource type="Texture2D" uid="uid://dxh2i5tbeja4h" path="res://Assets_aula1/Armadilha/On (38x38).png" id="1_itrj1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy1b6"]
+atlas = ExtResource("1_itrj1")
+region = Rect2(0, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymx6n"]
+atlas = ExtResource("1_itrj1")
+region = Rect2(38, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idad4"]
+atlas = ExtResource("1_itrj1")
+region = Rect2(76, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onxew"]
+atlas = ExtResource("1_itrj1")
+region = Rect2(114, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojsky"]
+atlas = ExtResource("1_itrj1")
+region = Rect2(152, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x7ke"]
+atlas = ExtResource("1_itrj1")
+region = Rect2(190, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1135"]
+atlas = ExtResource("1_itrj1")
+region = Rect2(228, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k86iv"]
+atlas = ExtResource("1_itrj1")
+region = Rect2(266, 0, 38, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r52oo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jy1b6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymx6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idad4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onxew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojsky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x7ke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1135")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k86iv")
+}],
+"loop": true,
+"name": &"idle_serra",
+"speed": 30.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5m7x8"]
+radius = 15.0
+
+[node name="Serra_Armadilha" type="Area2D"]
+
+[node name="sprite_serra" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r52oo")
+animation = &"idle_serra"
+autoplay = "idle_serra"
+
+[node name="colisao_serra" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5m7x8")

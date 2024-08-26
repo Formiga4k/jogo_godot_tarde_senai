@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://lj2jgvnahc5v"]
+
+[ext_resource type="Script" path="res://HUD/Control.gd" id="1_4x2t0"]
+[ext_resource type="FontFile" uid="uid://cc25majw4qlag" path="res://Fonts Text/pixel-bit-advanced.ttf" id="3_8mwcb"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4x2t0")
+
+[node name="Container" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Melon_countainer" type="HBoxContainer" parent="Control/Container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Melon" type="Label" parent="Control/Container/Melon_countainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.988806, 0.988805, 9.2411e-06, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8mwcb")
+theme_override_font_sizes/font_size = 30
+text = "PONTOS: 000"
+
+[node name="Vida_container" type="HBoxContainer" parent="Control/Container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Vida" type="Label" parent="Control/Container/Vida_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.988806, 0.988805, 9.2411e-06, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8mwcb")
+theme_override_font_sizes/font_size = 30
+text = "VIDA: 03"
+
+[node name="Timer_countainer" type="HBoxContainer" parent="Control/Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Timer_count" type="Label" parent="Control/Container/Timer_countainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.988806, 0.988805, 9.2411e-06, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8mwcb")
+theme_override_font_sizes/font_size = 30
+text = "00:00"
+
+[node name="Timer" type="Timer" parent="Control/Container/Timer_countainer"]
+autostart = true
+
+[connection signal="timeout" from="Control/Container/Timer_countainer/Timer" to="Control" method="_on_timer_timeout"]

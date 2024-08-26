@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxh1t6odpimqn"]
+
+[ext_resource type="Texture2D" uid="uid://dbh55bvhr4tqx" path="res://Assets_aula1/Coletavel/relogio.png" id="1_oe7i4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tja6t"]
+radius = 38.6005
+
+[node name="relogio" type="Area2D"]
+scale = Vector2(0.142857, 0.149254)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oe7i4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 6)
+shape = SubResource("CircleShape2D_tja6t")

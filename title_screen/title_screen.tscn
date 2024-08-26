@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3se185xci7pu"]
+
+[ext_resource type="Script" path="res://title_screen/title_screen.gd" id="1_56nxj"]
+[ext_resource type="Texture2D" uid="uid://dxg0jiat7iiiy" path="res://Assets_aula1/Terrain/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="1_qxse0"]
+[ext_resource type="FontFile" uid="uid://cc25majw4qlag" path="res://Fonts Text/pixel-bit-advanced.ttf" id="2_avmdg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7qrr"]
+bg_color = Color(0.957362, 0.40878, 0.0993329, 1)
+
+[sub_resource type="Theme" id="Theme_ki7pm"]
+Button/colors/font_hover_color = Color(0.988806, 0.988805, 9.2411e-06, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_w7qrr")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_is6sf"]
+bg_color = Color(0.957362, 0.40878, 0.0993329, 1)
+
+[sub_resource type="Theme" id="Theme_yeok8"]
+Button/colors/font_hover_color = Color(0.988806, 0.988805, 9.2411e-06, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_is6sf")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwdl3"]
+bg_color = Color(0.957362, 0.40878, 0.0993329, 1)
+
+[sub_resource type="Theme" id="Theme_4l1yb"]
+Button/colors/font_hover_color = Color(0.988806, 0.988805, 9.2411e-06, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_vwdl3")
+
+[node name="titleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_56nxj")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 1955.0
+offset_bottom = 1098.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qxse0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 436.0
+offset_top = 251.0
+offset_right = 544.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.09168, 1.75976)
+
+[node name="Iniciar_bt" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_ki7pm")
+theme_override_fonts/font = ExtResource("2_avmdg")
+text = "Iniciar"
+
+[node name="Creditos_bt" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_yeok8")
+theme_override_fonts/font = ExtResource("2_avmdg")
+text = "Creditos"
+
+[node name="Sair_bt" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_4l1yb")
+theme_override_fonts/font = ExtResource("2_avmdg")
+text = "Sair"
+
+[connection signal="pressed" from="VBoxContainer/Iniciar_bt" to="." method="_on_iniciar_bt_pressed"]
+[connection signal="pressed" from="VBoxContainer/Creditos_bt" to="." method="_on_creditos_bt_pressed"]
+[connection signal="pressed" from="VBoxContainer/Sair_bt" to="." method="_on_sair_bt_pressed"]

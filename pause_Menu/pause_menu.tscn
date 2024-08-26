@@ -1,0 +1,110 @@
+[gd_scene load_steps=20 format=3 uid="uid://bcmul38tfgiir"]
+
+[ext_resource type="FontFile" uid="uid://cc25majw4qlag" path="res://Fonts Text/pixel-bit-advanced.ttf" id="1_eygtj"]
+[ext_resource type="Script" path="res://pause_Menu/pause_menu.gd" id="1_ux72r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87tto"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e3rqr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_65341"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7m4a"]
+
+[sub_resource type="Theme" id="Theme_fy443"]
+Button/colors/font_hover_color = Color(0.988806, 0.988805, 9.2411e-06, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_87tto")
+Button/styles/hover = SubResource("StyleBoxEmpty_e3rqr")
+Button/styles/normal = SubResource("StyleBoxEmpty_65341")
+Button/styles/pressed = SubResource("StyleBoxEmpty_n7m4a")
+
+[sub_resource type="InputEventAction" id="InputEventAction_p2gox"]
+action = &"pause"
+
+[sub_resource type="Shortcut" id="Shortcut_0c58t"]
+events = [SubResource("InputEventAction_p2gox")]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8n185"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4h4iy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h4rr7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4ixh"]
+
+[sub_resource type="Theme" id="Theme_1pa8u"]
+Button/colors/font_hover_color = Color(0.988806, 0.988805, 9.2411e-06, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_8n185")
+Button/styles/hover = SubResource("StyleBoxEmpty_4h4iy")
+Button/styles/normal = SubResource("StyleBoxEmpty_h4rr7")
+Button/styles/pressed = SubResource("StyleBoxEmpty_q4ixh")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8wfml"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vlqml"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gvyty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mwrh2"]
+
+[sub_resource type="Theme" id="Theme_7go37"]
+Button/colors/font_hover_color = Color(0.988806, 0.988805, 9.2411e-06, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_8wfml")
+Button/styles/hover = SubResource("StyleBoxEmpty_vlqml")
+Button/styles/normal = SubResource("StyleBoxEmpty_gvyty")
+Button/styles/pressed = SubResource("StyleBoxEmpty_mwrh2")
+
+[node name="pause_menu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_ux72r")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2484, 0.2484, 0.2484, 1)
+
+[node name="menu_holder" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -32.0
+offset_right = 79.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Continuar" type="Button" parent="menu_holder"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_fy443")
+theme_override_fonts/font = ExtResource("1_eygtj")
+theme_override_font_sizes/font_size = 30
+shortcut = SubResource("Shortcut_0c58t")
+text = "Continuar"
+
+[node name="Sair do Jogo" type="Button" parent="menu_holder"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_1pa8u")
+theme_override_fonts/font = ExtResource("1_eygtj")
+theme_override_font_sizes/font_size = 30
+text = "Sair do Jogo"
+
+[node name="Reiniciar" type="Button" parent="menu_holder"]
+layout_mode = 2
+theme = SubResource("Theme_7go37")
+theme_override_fonts/font = ExtResource("1_eygtj")
+theme_override_font_sizes/font_size = 30
+text = "Reiniciar"
+
+[connection signal="pressed" from="menu_holder/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="menu_holder/Sair do Jogo" to="." method="_on_sair_do_jogo_pressed"]
+[connection signal="pressed" from="menu_holder/Reiniciar" to="." method="_on_reiniciar_pressed"]
